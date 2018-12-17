@@ -1,0 +1,1 @@
+console.log("stdout is writeable? " + process.stdout.writable);

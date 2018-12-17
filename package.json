@@ -1,0 +1,24 @@
+{
+  "name": "funwithnodejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "callbacks-async.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShayMe21/nodejs-practice.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ShayMe21/nodejs-practice/issues"
+  },
+  "homepage": "https://github.com/ShayMe21/nodejs-practice#readme",
+  "dependencies": {
+    "request": "^2.88.0",
+    "util": "^0.11.1"
+  }
+}
