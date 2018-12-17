@@ -24,13 +24,13 @@ async function removeDirectory() {
 
   try {
     if (fs.existsSync(FOLDER_NAME)) {
-      console.log(FOLDER_NAME + ' Directory Exists, removing...')
+      console.log(`${FOLDER_NAME} Directory Exists, removing...`)
       
       if (fs.existsSync(FOLDER_NAME + path.sep + FILE_NAME_1)) {
         let err = await unlink(FOLDER_NAME + path.sep + FILE_NAME_1)
 
         if (err) {
-          console.log('Error removing the file : ' + FILE_NAME_1 + ': ' + err)
+          console.log(`Error removing the file : ${FILE_NAME_1} : ${err}`)
         }
       }
       
@@ -40,7 +40,7 @@ async function removeDirectory() {
         let err = await unlink(FOLDER_NAME + path.sep + FILE_NAME_2)
 
         if (err) {
-          console.log('Error removing the file: ' + FILE_NAME_2 + ': ' + err)
+          console.log(`Error removing the file: ${FILE_NAME_2} : ${err}`)
         }
       }
 
@@ -50,11 +50,11 @@ async function removeDirectory() {
       let err = await rmdir(FOLDER_NAME)
 
       if (err) {
-        console.log('Error removing ' + FOLDER_NAME + ' directory: ' + err)
+        console.log(`Error removing ${FOLDER_NAME} directory: ${err}`)
       }
     }
   } catch (e) {
-    console.log('Exception in removeDirectory(): ' + e)
+    console.log(`Exception in removeDirectory(): ${e}`)
   }
 
 }
@@ -64,11 +64,11 @@ async function makeDirectory() {
     let exists_boolean = fs.existsSync(FOLDER_NAME)
 
     if (!exists_boolean) {
-      console.log(FOLDER_NAME + ' Directory does not exist, Creating...')
+      console.log(`${FOLDER_NAME} Directory does not exist, Creating...`)
       let err = await mkdir(FOLDER_NAME)
 
       if (err) {
-        console.log('Could not create the ' + FOLDER_NAME + ' directory! ' + err);
+        console.log(`Could not create the ${FOLDER_NAME} directory! ${err}`);
       }
     }
 
@@ -84,23 +84,23 @@ async function makeDirectory() {
         err = await writeFile(FILE_NAME_1, FILE_CONTENT_1)
 
         if (err) {
-          console.log('Could not write to the file ' + FILE_NAME_1 + ': ' + err)
+          console.log(`Could not write to the file ${FILE_NAME_1}: ${err}`)
         }
 
-        console.log('Created file: ' + FILE_NAME_1)
+        console.log(`Created file: ${FILE_NAME_1}`)
 
         err = await writeFile(FILE_NAME_2, FILE_CONTENT_2)
 
         if (err) {
-          console.log('Could not write to the file ' + FILE_NAME_2 + ': ' + err)
+          console.log(`Could not write to the file ${FILE_NAME_2}: ${err}`)
         }
 
-        console.log('Created file: ' + FILE_NAME_2)
+        console.log(`Created file: ${FILE_NAME_2}`)
       }
     }
 
   } catch (e) {
-    console.log('Exception in makeDirectory(): ' + e)
+    console.log(`Exception in makeDirectory(): ${e}`)
   }
 
 }
