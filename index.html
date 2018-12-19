@@ -1,0 +1,58 @@
+<html>
+<head>
+  <script src="/socket.io/socket.io.js"></script>
+  <title>WebSocket Client</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+
+  <script>
+  var socket;
+  function onload(){
+    socket = io.connect();
+
+    socket.on('timer', function(data){
+      document.getElementById('timer').innerHTML = data;
+    })
+  }
+
+  function submitData(){
+    $("#msg-received").hide();
+    $("#msg-failed").hide();
+
+    var data = document.getElementById('inputData').value;
+    socket.emit('chat', data);
+    socket.on('response', function(response) {
+      if (response == "failed"){
+        $("#msg-failed").fadeTo(1000, 500).slideUp(200, function(){
+          $("#msg-failed").slideUp(2000);
+        });
+      } else {
+        $("#msg-received").fadeTo(1000, 500).slideUp(200, function(){
+          $("#msg-received").slideUp(2000);
+        });
+      }
+    })
+  }
+
+</script>
+
+</head>
+
+<body onload="onload()">
+  <h1>Sample Websocket Client</h1>
+  <p>Timestamp: <span id="timer"></span></p>
+  <form action="#">
+    <p>Message: <input type="text" id="inputData" />
+      <input type="button" onclick="submitData()" />
+      <div id="msg-received" class="alert alert-success" role="alert" style="display: none"><strong>Server received the message!</strong></div>
+      <div id="msg-failed" class="alert alert-warning" role="alert" style="display: none"><strong>Server could not receive the message!</strong></div>
+    </p>
+
+  </form>
+
+</body>
+
+</html>
