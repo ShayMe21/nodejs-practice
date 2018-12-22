@@ -27,6 +27,14 @@ var evenDoubler = (v, callback) => {
   }, getRandTime(maxTime));
 }
 
+var evenDoublerSync = (v) => {
+  if (v%2){
+    throw (new Error('Odd Number'));
+  } else {
+    return v*2
+  }
+}
+
 var handleResults = (err, results, time) => {
   if (err){
     console.log('\x1b[31m%s\x1b[0m', "ERROR: " + err.message);
@@ -35,12 +43,12 @@ var handleResults = (err, results, time) => {
   }
 }
 
-for (let i=0; i<10;i++){
-  console.log("Calling evenDoubler function for value: " + i);
-  evenDoubler(i, handleResults);
-}
-// evenDoubler(2, handleResults);
-// evenDoubler(4, handleResults);
-// evenDoubler(5, handleResults);
+// for (let i=0; i<10;i++){
+//   console.log("Calling evenDoubler function for value: " + i);
+//   evenDoubler(i, handleResults);
+// }
 
 console.log("-------");
+
+module.exports.evenDoubler = evenDoubler;
+module.exports.evenDoublerSync = evenDoublerSync;
