@@ -1,5 +1,5 @@
 const assert = require('assert')
-const evenDoubler = require('./callbacks-async') 
+const evenDoubler = require('./evenDoubler') 
 
 assert.equal(evenDoubler.evenDoublerSync(2), 4)
 

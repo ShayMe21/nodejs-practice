@@ -1,5 +1,5 @@
 const should = require('should')
-const evenDoubler = require('./callbacks-async')
+const evenDoubler = require('./evenDoubler')
 
 describe('Maths4Fun', () => {
   describe('When used synchronously', () => {
