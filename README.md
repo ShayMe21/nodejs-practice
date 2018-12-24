@@ -1,16 +1,16 @@
 ### My NodeJS playground
 
 * Buffers
-* Async with Callbacks
+* Asynchronous with Callbacks
 * EventEmitter Class
 * File System `require('fs`)`
 * Await/Async
 * OS module `require('os`)`
 * Readable and Writeable Streams
 * HTTP `require('http')`
-
-
-
+* Socket.io Simple example `require('socket.io)`
+* Assert, Should.js and Mocha for Testing
+* Child Processes `require('child_process')` and Scaling with cluster module `require('cluster')`
 
 
 
